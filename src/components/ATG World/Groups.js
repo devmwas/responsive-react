@@ -4,7 +4,6 @@ import joinGroup from './Images/joinGroup.png'
 import leaveGroup from './Images/leaveGroup.png'
 import Article from './Article'
 import data from './data'
-import { useNavigate } from 'react-router-dom'
 import Register from './Register'
 import Login from './Login'
 import {useState} from 'react'
@@ -31,7 +30,6 @@ function Groups() {
     const [leave, setLeave] = useState(true)
 
     const Articles = data.map(article => <Article {...article} />)
-    const navigate = useNavigate()
 
     const handleJoinAndLeave = () => {
         setJoined(prevState => !prevState)
@@ -40,7 +38,7 @@ function Groups() {
 
   return (
     <>
-        <div style={{display: 'flex', width: '100%', top: 250, position: 'absolute', justifyContent: 'center'}}>
+        <div style={{display: 'flex', width: '100%', top: 250, position: 'relative', justifyContent: 'center'}}>
             <div style={{background: 'white'}}>
                 { joined && <Login setJoined={setJoined} setRegister={setRegister} setLeave={setLeave} /> }
                 { register && <Register setJoined={setJoined} setRegister={setRegister} /> }

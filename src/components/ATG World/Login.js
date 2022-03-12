@@ -1,5 +1,12 @@
 import React from 'react'
 import closeButton from './Images/closeButton.png'
+import fbLogo from './Images/fbLogo.png'
+import googleLogo from './Images/googleLogo.png'
+
+const logoStyles = {
+    height: 20,
+    width: 20
+}
 
 
 function Login({setJoined, setRegister, setLeave}) {
@@ -51,8 +58,13 @@ function Login({setJoined, setRegister, setLeave}) {
 
 
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 50 }}>
-            <button type="button" class="btn btn-outline-secondary btn-lg btn-block col-sm-12" >Sign in with Google</button>
-            <button type="button"  class="btn btn-outline-secondary btn-lg btn-block col-sm-12" style={{marginTop: 20}}>Sign in with Facebook</button>
+            <button type="button" class="btn btn-outline-secondary btn-lg btn-block col-sm-12" >
+                <img src={googleLogo} style={logoStyles} alignSelf={'center'} />&nbsp;Sign in with Google
+            </button>
+            <button type="button"  class="btn btn-outline-secondary btn-lg btn-block col-sm-12" 
+                style={{marginTop: 20}}>
+                    <img src={fbLogo} style={logoStyles} alignSelf={'center'} />&nbsp;Sign in with Facebook
+            </button>
         </div>
 
         <div style={{display: 'flex', justifyContent: 'center'}}>
