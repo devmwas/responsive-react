@@ -1,58 +1,65 @@
 import React from 'react'
+import closeButton from './Images/closeButton.png'
 
-function Login() {
+
+function Login({setJoined, setRegister, setLeave}) {
   return (
-    <div style={{display: 'flex', justifyContent: 'center'}}>
-        <form style={{padding: 30}}>
-            <h1>Sign Up Today</h1>
-            <div className='form-group' style={{marginTop: 30}}>
-                <label for={'username'}>
-                    Name &nbsp;&nbsp;
-                </label>
-                <div className='col-sm-6' style={{minWidth: 610, maxWidth: 610}}>
-                    <input type={'text'} id={'username'} className={'form-control'} borderBottom={'5px solid back'} />
-                </div>
+    <div style={{padding: 30, zIndex: 100}}>
+        <div style={{display: 'flex', justifyContent: 'center'}}>
+            <div className='col-sm-12' style={{display: 'flex', justifyContent: 'space-between'}}>
+                <span style={{}} ><h4>Welcome Back</h4></span>
+                <span><img style={{height: 20}} src={closeButton} onClick={() => {
+                    setJoined(false)
+                    setRegister(false)
+                }} /></span>
             </div>
+        </div>
 
-            <div className='form-group' style={{marginTop: 30}}>
-                <label for={'whatsappNumber'}>
-                    WhatsApp Number &nbsp;&nbsp;
-                </label>
-                <div className='col-sm-6' style={{minWidth: 610, maxWidth: 610}}>
-                    <input type={'text'} id={'whatsappNumber'} className={'form-control'} />
+        <div style={{display: 'flex', justifyContent: 'center'}}>
+            <form>
+                <div className='form-group' style={{marginTop: 30}}>
+                    <div className='col-sm-6' style={{minWidth: 610, maxWidth: 610}}>
+                        <input type={'text'} id={'username'} className={'form-control'} 
+                        borderBottom={'5px solid back'} placeholder={'Name'} />
+                    </div>
                 </div>
-            </div>
 
-            <div className='form-group' style={{marginTop: 30}}>
-                <label for={'videoLink'}>
-                    Video Link (Public Drive Link) &nbsp;&nbsp;
-                </label>
-                <div className='col-sm-6' style={{minWidth: 610, maxWidth: 610}}>
-                    <input type={'text'} id={'videoLink'} className={'form-control'} />
+                <div className='form-group' style={{marginTop: -1}}>
+                    <div className='col-sm-6' style={{minWidth: 610, maxWidth: 610}}>
+                        <input type={'text'} id={'username'} className={'form-control'} 
+                        borderBottom={'5px solid back'} placeholder={'Password'} />
+                    </div>
                 </div>
-            </div>
 
-            <div className='form-group' style={{marginTop: 30}}>
-                <label for={'hostLink'}>
-                    Host Link &nbsp;&nbsp;
-                </label>
-                <div className='col-sm-6' style={{minWidth: 610, maxWidth: 610}}>
-                    <input type={'text'} id={'hostLink'} className={'form-control .form-control-lg'} />
+                <div style={{display: 'flex', justifyContent: 'space-between', marginTop: 50}}>
+                    <button type='submit' style={{borderRadius: '100px'}} 
+                        className='btn btn-lg btn-primary col-sm-5' onClick={() => {
+                            setJoined(false)
+                            setRegister(false)
+                            setLeave(false)
+                        }} >
+                        Sign In
+                    </button>
+
+                    <a href='#' onClick={() => {
+                        setRegister(true)
+                        setJoined(false)
+                    }}>or, Create Account</a>
                 </div>
-            </div>
+            </form>
+        </div>
 
-            <div className='form-group' style={{marginTop: 30}}>
-                <label for={'githubLink'}>
-                    Github Link &nbsp;&nbsp;
-                </label>
-                <div className='col-sm-6' style={{minWidth: 610, maxWidth: 610}}>
-                    <input type={'text'} id={'githubLink'} className={'form-control'} />
-                </div>
-            </div>
 
-            <button type='submit' style={{marginTop: 30}} className={'btn btn-success'}>Submit</button>
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 50 }}>
+            <button type="button" class="btn btn-outline-secondary btn-lg btn-block col-sm-12" >Sign in with Google</button>
+            <button type="button"  class="btn btn-outline-secondary btn-lg btn-block col-sm-12" style={{marginTop: 20}}>Sign in with Facebook</button>
+        </div>
 
-        </form>
+        <div style={{display: 'flex', justifyContent: 'center'}}>
+        <a href='#' style={{marginTop: 50}}>Forgot Password</a>
+        </div>
+
+
     </div>
   )
 }

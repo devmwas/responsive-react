@@ -1,41 +1,14 @@
 import React from 'react'
 import homeImage from './Images/homeImage.png'
 import joinGroup from './Images/joinGroup.png'
-import forest from './Images/forest.png'
+import leaveGroup from './Images/leaveGroup.png'
 import Article from './Article'
-import Posts from './Posts'
 import data from './data'
-import filter from './Images/filter.png'
 import { useNavigate } from 'react-router-dom'
+import Register from './Register'
+import Login from './Login'
+import {useState} from 'react'
 
-
-const holderStyles = {
-    // backgroundImage: `url(${homeImage})`,
-    // height: 1194,
-    // width: 1821
-    // left: '0px',
-    // background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.6) 100%)'
-}
-
-const headerStyle = {
-    position: 'absolute',
-    width: '179px',
-    height: '22px',
-    left: '16px',
-    top: '188px',
-    fontFamily: 'IBM Plex Sans',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    fontSize: '17px',
-    lineHeight: '22px',
-/* identical to box height */
-    color:' #FFFFFF'
-}
-
-const filterImageStyles = {
-    position: 'relative',
-    left: 1300
-}
 
 const postsStyles = {
     position: 'relative',
@@ -53,44 +26,52 @@ const postsStyles = {
 }
 
 function Groups() {
+    const [joined, setJoined] = useState(false)
+    const [register, setRegister] = useState(false)
+    const [leave, setLeave] = useState(true)
+
     const Articles = data.map(article => <Article {...article} />)
     const navigate = useNavigate()
 
-    const handleClick = () => [
-        navigate('/login')
-    ]
+    const handleJoinAndLeave = () => {
+        setJoined(prevState => !prevState)
+    }
+    
 
   return (
     <>
-        <div style={{...holderStyles}} >
-            <img src={homeImage} className={'img-responsive col-sm-12'} style={{zIndex: -10}} />
+        <div style={{display: 'flex', width: '100%', top: 250, position: 'absolute', justifyContent: 'center'}}>
+            <div style={{background: 'white'}}>
+                { joined && <Login setJoined={setJoined} setRegister={setRegister} setLeave={setLeave} /> }
+                { register && <Register setJoined={setJoined} setRegister={setRegister} /> }
+            </div>
+        </div>
+
+        <div >
+            <img src={homeImage} className={'img-responsive col-sm-12'}  />
             <div style={{display: 'flex'}}>
-                <img src={joinGroup} onClick={handleClick} style={{position: 'absolute', top: '5%', right: '5%'}} className={'img-responsive col-sm-2'} />
-                <div style={{position: 'absolute', left: '5%',alignSelf: 'flex-end', color: 'white'}} className={'img-responsive col-sm-9'}>
+                <img src={ leave ?  joinGroup : leaveGroup} onClick={handleJoinAndLeave} style={{position: 'absolute', top: '5%', right: '5%'}} className={'img-responsive col-sm-2'} />
+                <img src={ joined ?  leaveGroup : joinGroup} onClick={handleJoinAndLeave} style={{position: 'absolute', top: '5%', right: '5%'}} className={'img-responsive col-sm-2'} />
+                <div style={{position: 'absolute', zIndex: 1, left: '5%',alignSelf: 'flex-end', color: 'white'}} className={'img-responsive col-sm-9'}>
                     <h1 style={{}}><b>Computer Engineering</b></h1>
                     <h3 style={{}}><b>142,765 Computer Engineers follow this</b></h3>
                 </div>
             </div>
         </div>
 
-        <div style={{display: 'flex', alignItems: 'center'}}>
-            <div style={postsStyles}>Posts(368)</div>
-            {/* <img style={filterImageStyles} src={filter} /> */}
-
-            {/* <label for="cars" style={{display: 'inline-block', color: 'black', position: 'absolute', right:'10%'}}><b>Filter</b>: &nbsp; &nbsp; </label> */}
+        <div style={{display: 'flex', justifyContent: 'space-between', padding: 20}}>
+            <div style={{...postsStyles, alignSelf: 'flex-start'}}>Posts(368)</div>
             
-            <div style={{display: 'flex', width: '100%', position: 'absolute', justifyContent: 'end', paddingRight: 40}}>
-                <h2 style={{alignSelf: 'center'}}>Filters: &nbsp;&nbsp;&nbsp; </h2>
-                <form>
-                    <select name="cars" id="cars" className='form-select'>
-                    <option value="volvo" style={{background: '#F1F3F5'}}>All</option>
-                    <option value="saab" style={{background: '#F1F3F5'}}>React</option>
-                    <option value="mercedes" style={{background: '#F1F3F5'}}>Vue</option>
-                    <option value="audi" style={{background: '#F1F3F5'}}>Angular</option>
-                    </select>
-                </form>
-            </div>
+            <form style={{alignSelf: 'center', justifySelf: 'center'}}>
+                <select name="frameworks" id="cars" className='form-select'>
+                <option value="all" style={{background: '#F1F3F5'}}>Choose Your Framework</option>
+                <option value="react" style={{background: '#F1F3F5'}}>React</option>
+                <option value="vue" style={{background: '#F1F3F5'}}>Vue</option>
+                <option value="angukar" style={{background: '#F1F3F5'}}>Angular</option>
+                </select>
+            </form>
         </div>
+
 
         { Articles }
 
