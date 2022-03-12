@@ -65,7 +65,7 @@ function Groups() {
         <div style={{...holderStyles}} >
             <img src={homeImage} className={'img-responsive col-sm-12'} style={{zIndex: -10}} />
             <div style={{display: 'flex'}}>
-                <img src={joinGroup} onClick={handleClick} style={{position: 'absolute', top: '5%', right: '5%'}} className={'img-responsive col-sm-3'} />
+                <img src={joinGroup} onClick={handleClick} style={{position: 'absolute', top: '5%', right: '5%'}} className={'img-responsive col-sm-2'} />
                 <div style={{position: 'absolute', left: '5%',alignSelf: 'flex-end', color: 'white'}} className={'img-responsive col-sm-9'}>
                     <h1 style={{}}><b>Computer Engineering</b></h1>
                     <h3 style={{}}><b>142,765 Computer Engineers follow this</b></h3>
