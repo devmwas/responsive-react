@@ -4,20 +4,20 @@ import fbLogo from './Images/fbLogo.png'
 import googleLogo from './Images/googleLogo.png'
 
 const logoStyles = {
-    height: 20,
-    width: 20
+    height: 17,
+    width: 17
 }
 
 
-function Login({setJoined, setRegister, setLeave}) {
+function Login({setShowRegister, setShowLogin, setJoined}) {
   return (
     <div style={{padding: 30, zIndex: 100}}>
         <div style={{display: 'flex', justifyContent: 'center'}}>
             <div className='col-sm-12' style={{display: 'flex', justifyContent: 'space-between'}}>
                 <span style={{}} ><h4>Welcome Back</h4></span>
                 <span><img style={{height: 20}} src={closeButton} onClick={() => {
-                    setJoined(false)
-                    setRegister(false)
+                    setShowLogin(false)
+                    setShowRegister(false)
                 }} /></span>
             </div>
         </div>
@@ -41,16 +41,16 @@ function Login({setJoined, setRegister, setLeave}) {
                 <div style={{display: 'flex', justifyContent: 'space-between', marginTop: 50}}>
                     <button type='submit' style={{borderRadius: '100px'}} 
                         className='btn btn-lg btn-primary col-sm-5' onClick={() => {
-                            setJoined(false)
-                            setRegister(false)
-                            setLeave(false)
+                            setShowLogin(false)
+                            setShowRegister(false)
+                            setJoined(true)
                         }} >
                         Sign In
                     </button>
 
                     <a href='#' onClick={() => {
-                        setRegister(true)
-                        setJoined(false)
+                        setShowRegister(true)
+                        setShowLogin(false)
                     }}>or, Create Account</a>
                 </div>
             </form>
@@ -58,12 +58,23 @@ function Login({setJoined, setRegister, setLeave}) {
 
 
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 50 }}>
-            <button type="button" class="btn btn-outline-secondary btn-lg btn-block col-sm-12" >
-                <img src={googleLogo} style={logoStyles} alignSelf={'center'} />&nbsp;Sign in with Google
+
+            <button type="button" style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}} 
+                class="btn btn-outline-secondary btn-lg btn-block col-sm-12" >
+                    <img src={googleLogo} style={{...logoStyles }}  />
+                    &nbsp;&nbsp;
+                    <span>Sign in with Google</span>
+                    &nbsp;&nbsp;
+                    <img src={googleLogo} style={{...logoStyles }}  />
             </button>
+
             <button type="button"  class="btn btn-outline-secondary btn-lg btn-block col-sm-12" 
-                style={{marginTop: 20}}>
-                    <img src={fbLogo} style={logoStyles} alignSelf={'center'} />&nbsp;Sign in with Facebook
+                style={{marginTop: 20, display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
+                    <img src={fbLogo} style={logoStyles} />
+                    &nbsp;&nbsp;
+                    <span>Sign in with Facebook</span>
+                    &nbsp;&nbsp;
+                    <img src={fbLogo} style={logoStyles} />
             </button>
         </div>
 

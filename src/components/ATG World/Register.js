@@ -8,15 +8,15 @@ const logoStyles = {
     width: 20
 }
 
-function Register({setJoined, setRegister, setLeave}) {
+function Register({setShowLogin, setShowRegister, setJoined}) {
   return (
     <div style={{padding: 30, zIndex: 100}}>
         <div style={{display: 'flex', justifyContent: 'center'}}>
             <div className='col-sm-12' style={{display: 'flex', justifyContent: 'space-between'}}>
                 <span style={{}} ><h4>Create Account</h4></span>
                 <span><img style={{height: 20}} src={closeButton} onClick={() => {
-                    setJoined(false)
-                    setRegister(false)
+                    setShowRegister(false)
+                    setShowLogin(false)
                 }} /></span>
             </div>
         </div>
@@ -57,13 +57,17 @@ function Register({setJoined, setRegister, setLeave}) {
 
                 <div style={{display: 'flex', justifyContent: 'space-between', marginTop: 50}}>
                     <button type='submit' style={{borderRadius: '100px'}} 
-                        className='btn btn-lg btn-primary col-sm-5' onClick={() => setLeave(false)} >
+                        className='btn btn-lg btn-primary col-sm-5' onClick={() => {
+                            setShowLogin(false)
+                            setShowRegister(false)
+                            setJoined(true)
+                        }} >
                             Sign Up
                     </button>
 
                     <a href='#' onClick={() => {
-                        setRegister(false)
-                        setJoined(true)
+                        setShowLogin(true)
+                        setShowRegister(false)
                     }}>or, Sign In</a>
                 </div>
             </form>
@@ -71,12 +75,23 @@ function Register({setJoined, setRegister, setLeave}) {
 
 
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 50 }}>
-            <button type="button" class="btn btn-outline-secondary btn-lg btn-block col-sm-12" >
-                <img src={googleLogo} style={logoStyles} alignSelf={'center'} />&nbsp;Sign in with Google
+
+            <button type="button" style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}} 
+                class="btn btn-outline-secondary btn-lg btn-block col-sm-12" >
+                    <img src={googleLogo} style={{...logoStyles }}  />
+                    &nbsp;&nbsp;
+                    <span>Sign in with Google</span>
+                    &nbsp;&nbsp;
+                    <img src={googleLogo} style={{...logoStyles }}  />
             </button>
+
             <button type="button"  class="btn btn-outline-secondary btn-lg btn-block col-sm-12" 
-                style={{marginTop: 20}}>
-                <img src={fbLogo} style={logoStyles} alignSelf={'center'} />&nbsp;Sign in with Facebook
+                style={{marginTop: 20, display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
+                    <img src={fbLogo} style={logoStyles} />
+                    &nbsp;&nbsp;
+                    <span>Sign in with Facebook</span>
+                    &nbsp;&nbsp;
+                    <img src={fbLogo} style={logoStyles} />
             </button>
         </div>
 

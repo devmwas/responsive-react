@@ -26,39 +26,40 @@ const postsStyles = {
 
 function Groups() {
     const [joined, setJoined] = useState(false)
-    const [register, setRegister] = useState(false)
-    const [leave, setLeave] = useState(true)
+    const [showLogin, setShowLogin] = useState(false)
+    const [showRegister, setShowRegister] = useState(false)
 
     const Articles = data.map(article => <Article {...article} />)
 
     const handleJoinAndLeave = () => {
-        setJoined(prevState => !prevState)
+        setShowLogin(true)
     }
     
 
   return (
     <>
-        <div style={{display: 'flex', width: '100%', top: 250, position: 'relative', justifyContent: 'center'}}>
-            <div style={{background: 'white'}}>
-                { joined && <Login setJoined={setJoined} setRegister={setRegister} setLeave={setLeave} /> }
-                { register && <Register setJoined={setJoined} setRegister={setRegister} /> }
-            </div>
+        <div style={{display: 'flex', top: 180,  position: 'absolute', 
+            justifyContent: 'center', width: '100%'}} >
+                <div style={{background: 'white'}} >
+                    { showLogin && <Login setShowLogin={setShowLogin} setShowRegister={setShowRegister} setJoined={setJoined} /> }
+                    { showRegister && <Register setShowLogin={setShowLogin} setShowRegister={setShowRegister} setJoined={setJoined} /> }
+                </div>
         </div>
 
         <div >
             <img src={homeImage} className={'img-responsive col-sm-12'}  />
             <div style={{display: 'flex'}}>
-                <img src={ leave ?  joinGroup : leaveGroup} onClick={handleJoinAndLeave} style={{position: 'absolute', top: '5%', right: '5%'}} className={'img-responsive col-sm-2'} />
+                {/* <img src={ leave ?  joinGroup : leaveGroup} onClick={handleJoinAndLeave} style={{position: 'absolute', top: '5%', right: '5%'}} className={'img-responsive col-sm-2'} /> */}
                 <img src={ joined ?  leaveGroup : joinGroup} onClick={handleJoinAndLeave} style={{position: 'absolute', top: '5%', right: '5%'}} className={'img-responsive col-sm-2'} />
-                <div style={{position: 'absolute', zIndex: 1, left: '5%',alignSelf: 'flex-end', color: 'white'}} className={'img-responsive col-sm-9'}>
+                <div style={{position: 'absolute', zIndex: -1, left: '5%',alignSelf: 'flex-end', color: 'white'}} className={'img-responsive col-sm-9'}>
                     <h1 style={{}}><b>Computer Engineering</b></h1>
                     <h3 style={{}}><b>142,765 Computer Engineers follow this</b></h3>
                 </div>
             </div>
         </div>
 
-        <div style={{display: 'flex', justifyContent: 'space-between', padding: 20}}>
-            <div style={{...postsStyles, alignSelf: 'flex-start'}}>Posts(368)</div>
+        <div style={{display: 'flex', justifyContent: 'space-between', padding: 20, zIndex: -1}}>
+            <div style={{...postsStyles, alignSelf: 'flex-start', zIndex: -1}}>Posts(368)</div>
             
             <form style={{alignSelf: 'center', justifySelf: 'center'}}>
                 <select name="frameworks" id="cars" className='form-select'>

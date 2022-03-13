@@ -1,19 +1,5 @@
 import React from 'react'
 
-const articleHeaderStyles = {
-  position: 'absolute',
-  // width: '280px',
-  height: '42px',
-  left: '16px',
-  top: '100px',
-  fontFamily: 'IBM Plex Sans',
-  fontStyle: 'normal',
-  fontWeight: 600,
-  fontSize: '16px',
-  lineHeight: '21px',
-  color: '#000000'
-}
-
 const articleTitleStyles = {
   position: 'absolute',
   width: '60px',
@@ -27,25 +13,6 @@ const articleTitleStyles = {
   lineHeight: '18px',
   /* identical to box height */
   color: '#000000'
-}
-
-const moreStyles = {
-  position: 'absolute',
-  left: '1700px',
-  // right: '0%',
-  top: '100px',
-  // bottom: '-8.33%',
-  // transform: 'rotate(10deg)' 
-}
-
-const writerImageStyles = {
-  position: 'absolute',
-  width: '37px',
-  height: '37px',
-  left: '16px',
-  top: '200px',
-  // background: url(christopher-campbell-28567-unsplash.jpg);
-  borderRadius: '24px'
 }
 
 const nameStyles = {
@@ -86,14 +53,6 @@ const shareStyles = {
   // top: '200px'
 }
 
-const articleContainer = {
-  position: 'relative',
-  background: 'red',
-  left: '0px',
-  // marginTop: 20,
-  borderRadius: '4px 4px 0px 0px'
-}
-
 const articleContentStyles = {
   position: 'relative',
   width: '100%',
@@ -102,63 +61,6 @@ const articleContentStyles = {
   left: '0px',
   // background: 'green',
   boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.12)',
-}
-
-const articleImageStyles = {
-  position: 'relative',
-  width: '100%',
-  height: '120px',
-  left: '0px',
-  // background: `url(daniel-plan-1123199-unsplash.jpg), #C4C4C4`,
-  borderRadius: '4px 4px 0px 0px'
-}
-
-const articleTextStyles = {
-  position: 'absolute',
-  width: '324px',
-  height: '18px',
-  left: '16px',
-  top: '130px',
-  fontFamily: 'IBM Plex Sans',
-  fontStyle: 'normal',
-  fontWeight: 400,
-  fontSize: '20px',
-  lineHeight: '18px',
-  color: '#495057',
-}
-
-const rowStyles = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center'
-}
-
-const visitWebsiteStyles = {
-  position: 'absolute',
-  width: '328px',
-  height: '34px',
-  left: '16px',
-  top: '1240px',
-  background: '#FFFFFF',
-  border: '0.7px dashed #A9AEB8',
-  boxSizing: 'border-box',
-  borderRadius: '8px'
-}
-
-const visitWebsiteTextStyles = {
-  position: 'absolute',
-  width: '80px',
-  height: '18px',
-  left: '140px',
-  top: '1248px',
-  fontFamily: 'IBM Plex Sans',
-  fontStyle: 'normal',
-  fontWeight: 600,
-  fontSize: '13px',
-  lineHeight: '140.4%',
-  /* or 18px */
-  textAlign: 'center',
-  color: '#E56135'
 }
 
 function Article(props) {
